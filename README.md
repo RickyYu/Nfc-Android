@@ -6,9 +6,9 @@ Android Nfc技术解析、使用
 
 
 ![](http://upload-images.jianshu.io/upload_images/5443336-d3a5aa356f50cd57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-                                 由飞利浦公司和索尼公司共同开发的NFC是一种非接触式识别和互联技术
+由飞利浦公司和索尼公司共同开发的NFC是一种非接触式识别和互联技术
                                  
- ### 一、nfc是什么，它的工作模式？
+ ###一、nfc是什么，它的工作模式？
     NFC工作模式主要有三种工作模式，分别是卡模式(Card emulation)、点对点模式(P2P mode)和读卡器模式(Reader/writer mode)。
     
     ####（1）读卡器模式
