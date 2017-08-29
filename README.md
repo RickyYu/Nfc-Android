@@ -51,11 +51,11 @@ NdefMessage和NdefRecord是Android NFC技术的核心类，无论读写NDEF格�
 #### （3）编写NFC程序的基本步骤
 * 1）设置权限，限制Android版本、安装的设备：
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-02ea26579ecb2e80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-02ea26579ecb2e80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * 2）定义可接收Tag的Activity，配置一下launchMode属性,处理NFC的Activity都要设置launchMode属性为singleTop或者singleTask，保证activty唯一实例
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-6d589d8e59e8083d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-6d589d8e59e8083d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 三、实战使用NFC标签
 #### (1)利用NFC标签让Android自动运行程序
@@ -65,7 +65,7 @@ NdefMessage和NdefRecord是Android NFC技术的核心类，无论读写NDEF格�
 
 * 1）获取Tag对象
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-13ca866b33394118.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-13ca866b33394118.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * 2）判断NFC标签的数据类型（通过Ndef.get方法）
 * 3）写入数据
@@ -78,15 +78,15 @@ NdefMessage和NdefRecord是Android NFC技术的核心类，无论读写NDEF格�
 
 * 应用主界面:
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-6e799fa3a8598b77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-6e799fa3a8598b77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * 数据写入界面:
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-5b65998645199bc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-5b65998645199bc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * 扫描NFC标签后跳转页面
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-ac73588141ca844a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-ac73588141ca844a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 四、NDEF文本格式深度解析
 
@@ -105,31 +105,31 @@ NdefMessage和NdefRecord是Android NFC技术的核心类，无论读写NDEF格�
  
  * NDEF文本数据格式
  
- ![](http://upload-images.jianshu.io/upload_images/5443336-4ca1bae404f85a49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-4ca1bae404f85a49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * 状态字节编码格式
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-8507380e27ef4496.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-8507380e27ef4496.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 实现NFC标签中的文本数据的读写操作：
 
 * 写文本数据核心代码，具体可查阅项目中代码WriteTextActivity类
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-24f1eaf321c6bfbe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-24f1eaf321c6bfbe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * 读文本数据核心代码，具体可查阅项目中代码ReadTextActivity类
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-bc192aaa34e5d5af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-bc192aaa34e5d5af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 点击写NFC标签中的文本数据，跳转到对应的Activity，将NFC标签卡贴近手机，写入成功后会提示，再退回主页面，选择读文本数据，便可读取。
 
 * 数据写入界面
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-caffd6bf63a3cae2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-caffd6bf63a3cae2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * 数据读取界面
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-d1e503f2dda83c40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-d1e503f2dda83c40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 五、NDEF Uri格式存储（操作步骤如上图，具体实现可查阅项目代码）
 
@@ -141,4 +141,4 @@ NdefMessage和NdefRecord是Android NFC技术的核心类，无论读写NDEF格�
 
 * 此为本次测试所使用设备，手机：小米5  NFC标签卡：淘宝可购买
 
- ![](http://upload-images.jianshu.io/upload_images/5443336-35393841d4ae6d61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  ![](http://upload-images.jianshu.io/upload_images/5443336-35393841d4ae6d61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
