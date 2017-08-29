@@ -1,4 +1,3 @@
-
 # Nfc-Android
 Android Nfc技术使用详解，具体详情可查看[文章地址](http://www.jianshu.com/p/e89cc9bba8a6)
 
@@ -13,14 +12,14 @@ NFC是Near Field Communication缩写，即`近距离无线通讯技术`。可以
 ### 一、nfc是什么，它的工作模式？
 NFC工作模式主要有三种工作模式，分别是卡模式(Card emulation)、点对点模式(P2P mode)和读卡器模式(Reader/writer mode)。
     
-####（1）`读卡器模式`
+#### （1）读卡器模式
 
         数据在NFC芯片中，可以简单理解成“刷标签”。本质上就是通过支持NFC的手机或其它电子设备从带有NFC芯片的标签、贴纸、名片等媒介中读写信息。通常NFC标签是不需要外部供电的。当支持NFC的外设向NFC读写数据时，它会发送某种磁场，而这个磁场会自动的向NFC标签供电
-####（2）`仿真卡模式`
 
+#### （2）仿真卡模式
         数据在支持NFC的手机或其它电子设备中，可以简单理解成“刷手机”。本质上就是将支持NFC的手机或其它电子设备当成借记卡、公交卡、门禁卡等IC卡使用。基本原理是将相应IC卡中的信息凭证封装成数据包存储在支持NFC的外设中 。在使用时还需要一个NFC射频器（相当于刷卡器）。将手机靠近NFC射频器，手机就会接收到NFC射频器发过来的信号，在通过一系列复杂的验证后，将IC卡的相应信息传入NFC射频器，最后这些IC卡数据会传入NFC射频器连接的电脑，并进行相应的处理（如电子转帐、开门等操作）。
 
-####（3）`点对点模式`
+#### （3）点对点模式
 
         该模式与蓝牙、红外差不多，用于不同NFC设备之间进行数据交换，不过这个模式已经没有有“刷”的感觉了。其有效距离一般不能超过4厘米，但传输建立速度要比红外和蓝牙技术快很多，传输速度比红外块得多，如过双方都使用Android4.2，NFC会直接利用蓝牙传输。这种技术被称为AndroidBeam。所以使用androidBeam传输数据的两部设备不再限于4厘米之内
 
@@ -51,8 +50,8 @@ NdefMessage和NdefRecord是Android NFC技术的核心类，无论读写NDEF格�
 
 #### （3）编写NFC程序的基本步骤
 * 1）设置权限，限制Android版本、安装的设备：
-* 
-![](http://upload-images.jianshu.io/upload_images/5443336-02ea26579ecb2e80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+ ![](http://upload-images.jianshu.io/upload_images/5443336-02ea26579ecb2e80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * 2）定义可接收Tag的Activity，配置一下launchMode属性,处理NFC的Activity都要设置launchMode属性为singleTop或者singleTask，保证activty唯一实例
 
@@ -65,9 +64,12 @@ NdefMessage和NdefRecord是Android NFC技术的核心类，无论读写NDEF格�
 向NFC标签写入数据一般分为三步：
 
 * 1）获取Tag对象
+
  ![](http://upload-images.jianshu.io/upload_images/5443336-13ca866b33394118.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 * 2）判断NFC标签的数据类型（通过Ndef.get方法）
 * 3）写入数据
+
   ![](http://upload-images.jianshu.io/upload_images/5443336-06b126d1bf203a48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 操作步骤,实际运行效果如下:
@@ -90,13 +92,13 @@ NdefMessage和NdefRecord是Android NFC技术的核心类，无论读写NDEF格�
 
 获取NFC标签中的数据要通过 NdefRecord.getPayload 方法完成。当然，在处理这些数据之前，最好判断一下NdefRecord对象中存储的是不是NDEF文本格式数据。
 
-####（1）判断数据是否为NDEF格式
+#### (1)判断数据是否为NDEF格式
 * 1）TNF（类型名格式，Type Name Format）必须是NdefRecord.TNF_WELL_KNOWN。
 * 2）可变的长度类型必须是NdefRecord.RTD_TEXT。
 
 如果这两个标准同时满足，那么就为NDEF格式
 
-####（2）NDEF文本格式规范
+#### (2)NDEF文本格式规范
 不管什么格式的数据本质上都是由一些字节组成的。对于NDEF文本格式来说，这些数据的第1个字节描述了数据的状态，然后若干个字节描述文本的语言编码，最后剩余字节表示文本数据。这些数据格式由NFC Forum的相关规范定义，可以通过 http://members.nfc-forum.org/specs/spec_dashboard 下载相关的规范。
 
  下面这两张表是规范中 3.2节 相对重要的翻译部分：
@@ -138,4 +140,5 @@ NdefMessage和NdefRecord是Android NFC技术的核心类，无论读写NDEF格�
 
 
 * 此为本次测试所使用设备，手机：小米5  NFC标签卡：淘宝可购买
+
  ![](http://upload-images.jianshu.io/upload_images/5443336-35393841d4ae6d61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
